@@ -1,5 +1,7 @@
 @extends('dashboard')
 @section('content')
+
+
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -10,7 +12,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item">
-                        <a href="#">BOOKS</a>
+                        <a href="#">Books</a>
                     </li>
                     <li class="breadcrumb-item active">Index</li>
                 </ol>
@@ -19,7 +21,7 @@
             </div>
         <!-- /.row -->
     </div>
-<!-- /.container-fluid -->
+    <!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
 <!-- Main content -->
@@ -34,18 +36,21 @@
                             <table class="table table-hover textnowrap">
                                 <thead>
                                     <tr>
+                                        <th class="text-center">Poster</th>
                                         <th class="text-center">Title</th>
                                         <th class="text-center">Author</th>
-                                        <th class="textcenter">Page</th>
+                                        <th class="text-center">Page</th>
                                         <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @forelse ($book as $item)
                                     <tr>
+                                        <td class="text-center"><img src="{{ asset('storage/' .$item->image)}}" alt="" width="140">
+                                        </td>
                                         <td class="text-center">{{ $item->title}}</td>
                                         <td class="text-center">{{ $item->author}}</td>
-                                        <td class="text-center">{{ $item->page}}</td>
+                                        <td class="text-center">{{ $item->pages}}</td>
                                         <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('book.destroy', $item->id)}}" method="POST">
                                             <a href="{{route('book.edit', $item->id)}}" class="btn btn-sm btn-primary">EDIT</a>

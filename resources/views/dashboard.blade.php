@@ -98,5 +98,20 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('js/adminlte.min.js') }}"></script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelector('[data-widget="fullscreen"]').addEventListener('click', (e) => {
+            e.preventDefault();
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
